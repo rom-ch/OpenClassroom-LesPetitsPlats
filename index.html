@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/e4296c345c.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="./css/style.css" />
+		<script src="js/dropdowns.js" defer></script>
 		<title>Les Petits Plats</title>
 	</head>
 	<body>
@@ -30,52 +32,525 @@
 						placeholder="Rechercher une recette, un ingredient, ..."
 					/>
 					<button type="submit">
-						<img src="./assets/images/search.svg" alt="Search" />
+						<svg
+							width="28"
+							height="28"
+							viewBox="0 0 28 28"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<circle cx="10" cy="10" r="9.5" stroke="white" />
+							<line
+								x1="18.3536"
+								y1="18.6464"
+								x2="27.3536"
+								y2="27.6464"
+								stroke="white"
+							/>
+						</svg>
 					</button>
 				</form>
 			</div>
 		</header>
 		<main>
-			<div class="recipes-list">
+			<section class="filters-section">
+				<div class="filters">
+					<div class="dropdown" data-dropdown>
+						<button class="link" data-dropdown-button>
+							<span>Ingrédients</span>
+							<svg
+								width="15"
+								height="8"
+								viewBox="0 0 15 8"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M1 7L7.5 1L14 7"
+									stroke="#1B1B1B"
+									stroke-linecap="round"
+								/>
+							</svg>
+						</button>
+						<div class="dropdown-menu">
+              <form class="select" action="#">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                  <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                </svg>
+                <input type="text">
+              </form>
+              <ul class="added-items"></ul>
+              <ul class="list">
+                <li class="list-item"><a href="#">Jus de citron</a></li>
+                <li class="list-item"><a href="#">Tomate</a></li>
+                <li class="list-item"><a href="#">Poulet</a></li>
+              </ul>
+            </div>
+					</div>
+          <div class="dropdown" data-dropdown>
+						<button class="link" data-dropdown-button>
+							<span>Appareils</span>
+							<svg
+								width="15"
+								height="8"
+								viewBox="0 0 15 8"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M1 7L7.5 1L14 7"
+									stroke="#1B1B1B"
+									stroke-linecap="round"
+								/>
+							</svg>
+						</button>
+						<div class="dropdown-menu">
+              <form class="select" action="#">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                  <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                </svg>
+                <input type="text">
+              </form>
+              <ul class="added-items"></ul>
+              <ul class="list">
+                <li class="list-item"><a href="#">Jus de citron</a></li>
+                <li class="list-item"><a href="#">Tomate</a></li>
+                <li class="list-item"><a href="#">Poulet</a></li>
+              </ul>
+            </div>
+					</div>
+          <div class="dropdown" data-dropdown>
+						<button class="link" data-dropdown-button>
+							<span>Ustensiles</span>
+							<svg
+								width="15"
+								height="8"
+								viewBox="0 0 15 8"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M1 7L7.5 1L14 7"
+									stroke="#1B1B1B"
+									stroke-linecap="round"
+								/>
+							</svg>
+						</button>
+						<div class="dropdown-menu">
+              <form class="select" action="#">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                  <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                </svg>
+                <input type="text">
+              </form>
+              <ul class="added-items"></ul>
+              <ul class="list">
+                <li class="list-item"><a href="#">Jus de citron</a></li>
+                <li class="list-item"><a href="#">Tomate</a></li>
+                <li class="list-item"><a href="#">Poulet</a></li>
+              </ul>
+            </div>
+					</div>
+				</div>
+        <span class="total-recipes">50 recettes</span>
+			</section>
+			<section class="recipes-section">
 				<article class="card">
 					<div class="card__image">
 						<img src="./assets/recipes/Recette01.jpg" alt="#" />
 					</div>
+					<span class="card__duration">10min</span>
 					<div class="card__content">
 						<h2 class="card__title">Titre de la recette</h2>
-            <h3 class="card__subtitle">Recette</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sit eos est illum aspernatur, mollitia totam, sint possimus ut amet fugit vero maiores dolores corrupti in voluptatibus eveniet quisquam nam!</p>
-            <h3 class="card__subtitle">Ingrédients</h3>
-            <div class="ingredients-container">
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-              <div class="ingredient">
-                <span class="ingredient__name">Sucre</span>
-                <span class="ingredient__value">1 cuilliere a soupe</span>
-              </div>
-            </div>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
 					</div>
 				</article>
-        
-			</div>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="card">
+					<div class="card__image">
+						<img src="./assets/recipes/Recette01.jpg" alt="#" />
+					</div>
+					<span class="card__duration">10min</span>
+					<div class="card__content">
+						<h2 class="card__title">Titre de la recette</h2>
+						<h3 class="card__subtitle">Recette</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing
+							elit. Odit, sit eos est illum aspernatur, mollitia
+							totam, sint possimus ut amet fugit vero maiores
+							dolores corrupti in voluptatibus eveniet quisquam
+							nam!
+						</p>
+						<h3 class="card__subtitle">Ingrédients</h3>
+						<div class="ingredients-container">
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+							<div class="ingredient">
+								<span class="ingredient__name">Sucre</span>
+								<span class="ingredient__value"
+									>1 cuilliere a soupe</span
+								>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
 		</main>
 	</body>
 </html>

@@ -42,7 +42,8 @@ img {
 .header__logo {
 	position: absolute;
 	top: 2rem;
-	left: 3rem;
+	left: 1rem;
+	scale: 0.8;
 }
 
 .header__content {
@@ -88,19 +89,174 @@ img {
 	width: 51px;
 	height: 52px;
 	padding: 7px;
+	cursor: pointer;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-/* Main */
-main {
-	background-color: #E5E5E5;
+.header__form button:hover {
+	background-color: var(--clr-accent);
 }
 
-.recipes-list {
+.header__form button:hover circle,
+.header__form button:hover line {
+	stroke: black;
+}
+
+/* Main */
+main {
+	background-color: #e5e5e5;
+}
+
+/* Filters section */
+.filters-section {
+	padding: 2rem 3rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filters {
+	display: flex;
+	align-items: center;
+	gap: 5rem;
+}
+
+.link {
+	background: #fff;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 1rem;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+}
+
+.link > span,
+.link > svg {
+	pointer-events: none;
+}
+
+.dropdown.active > .link {
+	border-radius: 10px 10px 0 0;
+}
+
+.dropdown > .link > svg {
+	transition: transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link > svg {
+	transform: rotate(180deg);
+}
+
+.dropdown {
+	position: relative;
+	z-index: 10;
+}
+
+.dropdown-menu {
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 100%;
+	padding: 0.5rem 1rem 1rem;
+	border-radius: 0 0 10px 10px;
+	opacity: 0;
+	transform: translateY(-10px);
+	pointer-events: none;
+	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+	opacity: 1;
+	transform: translateY(0px);
+	pointer-events: auto;
+}
+
+.select {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.select svg {
+	position: absolute;
+	right: 0;
+	scale: 0.6;
+	cursor: pointer;
+}
+
+.select > input {
+	width: 100%;
+	border: 1px solid var(--clr-grey-100);
+	color: var(--clr-grey-400);
+	font-size: 14px;
+	padding: 0.5rem 0.5rem;
+	border-radius: 2px;
+}
+
+.select svg line,
+.select svg circle {
+	stroke: var(--clr-grey-400);
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.added-items li a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--clr-accent);
+}
+
+.added-items li a i {
+	background-color: #000;
+	border-radius: 50%;
+	width: 17px;
+	height: 17px;
+	color: var(--clr-accent);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.list-item a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	font-size: 14px;
+	padding: 0.5rem 16px;
+	margin-inline: -16px;
+}
+
+.list-item a:hover {
+	background-color: var(--clr-accent);
+}
+
+.total-recipes {
+	font-family: "Anton", sans-serif;
+	font-size: 21px;
+}
+/* Recipes section */
+
+.recipes-section {
 	padding: 3rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+	gap: 3rem 0rem;
+	place-items: center;
 }
 
 /* Card */
@@ -109,7 +265,8 @@ main {
 	background-color: #fff;
 	border-radius: 21px;
 	overflow: hidden;
-	box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.1);
+	position: relative;
 }
 
 .card__image {
@@ -125,8 +282,18 @@ main {
 	object-fit: cover;
 }
 
+.card__duration {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background-color: var(--clr-accent);
+	font-size: 12px;
+	padding: 0.3rem 1rem;
+	border-radius: 50px;
+}
+
 .card__content {
-	padding: 1rem 1rem 3rem;
+	padding: 1rem 1.5rem 2rem;
 }
 
 .card__title {
@@ -135,10 +302,17 @@ main {
 }
 
 .card__subtitle {
+	margin-block: 24px 8px;
 	font-size: 12px;
 	font-weight: 700;
 	color: var(--clr-grey-400);
 	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.card__content p {
+	margin-block: 8px 16px;
+	font-size: 14px;
 }
 
 .ingredients-container {
@@ -151,6 +325,7 @@ main {
 	font-size: 14px;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 1rem;
 }
 
 .ingredient__name {
