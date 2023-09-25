@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500&display=swap");
 
 :root {
+	--clr-black: #1B1B1B;
 	--clr-grey-400: #7a7a7a;
 	--clr-grey-100: #c6c6c6;
 	--clr-accent: #ffd15b;
@@ -214,14 +215,18 @@ ul {
 	margin-bottom: 0;
 }
 
-.added-items li a {
+.added-items li {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: var(--clr-accent);
+	color: var(--clr-black);
+	font-size: 14px;
+	padding: 0.5rem 16px;
+	margin-inline: -16px;
 }
 
-.added-items li a i {
+.added-items li i {
 	background-color: #000;
 	border-radius: 50%;
 	width: 17px;
@@ -230,6 +235,7 @@ ul {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .list-item a {

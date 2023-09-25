@@ -22,13 +22,22 @@ items.forEach(item => {
 		e.preventDefault();
 		const html = `
 			<li class="list-item">
-				<a href="#">
 					<span>${item.innerText}</span>
 					<i class="fa-solid fa-xmark"></i>
-				</a>
 			</li>
 		`;
 		item.parentElement.parentElement.previousElementSibling.innerHTML +=
 			html;
+	});
+});
+
+const lists = document.querySelectorAll(".dropdown-menu");
+
+lists.forEach(list => {
+	list.addEventListener("click", e => {
+		e.preventDefault();
+		if (e.target.matches(".fa-xmark")) {
+			e.target.parentElement.remove();
+		}
 	});
 });
