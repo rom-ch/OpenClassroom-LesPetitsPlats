@@ -1,11 +1,11 @@
 import RecipeCard from "../utils/recipeCard.js";
 
 class App {
-	constructor() {}
+  constructor() {}
 
-	init() {
-		RecipeCard.init();
-	}
+  init() {
+    RecipeCard.init();
+  }
 }
 
 const app = new App();
