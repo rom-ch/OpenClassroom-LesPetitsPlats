@@ -1,6 +1,3 @@
-import Recipe from "../models/recipe.js";
-import { recipes } from "../recipes.js";
-
 export default class RecipeCard {
   constructor(recipes) {
     this.element = this.buildDOM();
