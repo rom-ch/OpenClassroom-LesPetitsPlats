@@ -10,16 +10,22 @@ export default class MainSearch {
     let filteredRecipes = [];
 
     for (let i = 0; i < recipes.length; i++) {
-      if (
-        normalizeString(recipes[i].name).includes(normalizeString(userInput)) ||
-        normalizeString(recipes[i].description).includes(
-          normalizeString(userInput)
-        )
-      ) {
+      const compareName = normalizeString(recipes[i].name).includes(
+        normalizeString(userInput)
+      );
+      const compareDescription = normalizeString(
+        recipes[i].description
+      ).includes(normalizeString(userInput));
+
+      if (compareName || compareDescription) {
         filteredRecipes.push(recipes[i]);
       } else {
         for (let j = 0; j < recipes[i].ingredients.length; j++) {
-          if (normalizeString(recipes[i].ingredients[j].ingredient).includes(userInput)) {
+          const compareIngredients = normalizeString(
+            recipes[i].ingredients[j].ingredient
+          ).includes(userInput);
+
+          if (compareIngredients) {
             filteredRecipes.push(recipes[i]);
           }
         }
