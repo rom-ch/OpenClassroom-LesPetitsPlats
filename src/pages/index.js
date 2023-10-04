@@ -7,6 +7,7 @@ class App {
     this.recipeSection = document.querySelector(".recipes-section");
   }
 
+  // Methode pour inserrer les cartes recettes dans le dom
   displayRecipeCards(recipes) {
     this.recipeSection.innerHTML = "";
     recipes.forEach(recipe => {
@@ -16,11 +17,13 @@ class App {
   }
 
   init() {
-    // const recipeSection = document.querySelector(".recipes-section");
+    // Dom elements
     const searchInput = document.querySelector("#search");
 
+    // Ajoute toutes les recettes au lancement de la page
     this.displayRecipeCards(recipes);
 
+    // Filtre les recettes
     searchInput.addEventListener("input", e => {
       if (e.target.value.length >= 3) {
         let filteredRecipes = MainSearch.filterCards(recipes, e.target.value);
