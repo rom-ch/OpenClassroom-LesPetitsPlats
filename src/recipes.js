@@ -15,12 +15,12 @@ export const recipes = [
         "quantity" : 2
       },
       {
-        "ingredient" : "Crème de coco",
+        "ingredient" : "Crème de cocooo",
         "quantity" : 2,
         "unit" : "cuillères à soupe"
       },
       {
-        "ingredient" : "Sucre",
+        "ingredient" : "Sucreee",
         "quantity" : 30,
         "unit" : "grammes"
       },

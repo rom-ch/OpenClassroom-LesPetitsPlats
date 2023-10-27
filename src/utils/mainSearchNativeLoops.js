@@ -6,7 +6,6 @@ export default class MainSearch {
   }
 
   static filterCards(recipes, userInput) {
-    userInput = normalizeString(userInput);
     let filteredRecipes = [];
 
     for (let i = 0; i < recipes.length; i++) {
@@ -17,13 +16,17 @@ export default class MainSearch {
         recipes[i].description
       ).includes(normalizeString(userInput));
 
-      if (compareName || compareDescription) {
+      if (compareName) {
         filteredRecipes.push(recipes[i]);
+        continue;
+      } else if (compareDescription) {
+        filteredRecipes.push(recipes[i]);
+        continue;
       } else {
         for (let j = 0; j < recipes[i].ingredients.length; j++) {
           const compareIngredients = normalizeString(
             recipes[i].ingredients[j].ingredient
-          ).includes(userInput);
+          ).includes(normalizeString(userInput));
 
           if (compareIngredients) {
             filteredRecipes.push(recipes[i]);

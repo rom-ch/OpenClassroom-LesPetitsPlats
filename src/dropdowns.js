@@ -14,30 +14,3 @@ document.addEventListener("click", e => {
     dropdown.classList.remove("active");
   });
 });
-
-const items = document.querySelectorAll(".list li a");
-
-items.forEach(item => {
-  item.addEventListener("click", e => {
-    e.preventDefault();
-    const html = `
-			<li class="list-item">
-					<span>${item.innerText}</span>
-					<i class="fa-solid fa-xmark"></i>
-			</li>
-		`;
-    item.parentElement.parentElement.previousElementSibling.innerHTML +=
-			html;
-  });
-});
-
-const lists = document.querySelectorAll(".dropdown-menu");
-
-lists.forEach(list => {
-  list.addEventListener("click", e => {
-    e.preventDefault();
-    if (e.target.matches(".fa-xmark")) {
-      e.target.parentElement.remove();
-    }
-  });
-});
