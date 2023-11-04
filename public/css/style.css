@@ -165,6 +165,8 @@ main {
 .dropdown-menu {
 	background-color: #fff;
 	position: absolute;
+	max-height: 240px;
+	overflow-y: scroll;
 	left: 0;
 	top: 100%;
 	width: 100%;
@@ -262,7 +264,8 @@ ul {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 	gap: 3rem 0rem;
-	place-items: center;
+	justify-items: center;
+	align-items: start;
 }
 
 /* Card */
@@ -340,4 +343,56 @@ ul {
 
 .ingredient__value {
 	color: var(--clr-grey-400);
+}
+
+
+@media (max-width: 425px) {
+	.header {
+		height: 333px;
+		padding: 1rem 1.5rem;
+		background-size: cover;
+	}
+
+	.header__logo {
+		scale: .5;
+		left: -2rem;
+	}
+
+	.header__content {
+		width: 90%;
+	}
+
+	.header__title {
+		font-size: 22px;
+		margin-bottom: 2rem;
+	}
+
+	.header__form button {
+		width: 35px;
+		height: 37px;
+	}
+
+	.search {
+		padding: .75rem;
+		font-size: .8rem;
+	}
+
+	.filters-section {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	.filters {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.link {
+		gap: 1rem;
+	}
+
+	.recipes-section {
+		padding-inline: 0;
+	}
 }
