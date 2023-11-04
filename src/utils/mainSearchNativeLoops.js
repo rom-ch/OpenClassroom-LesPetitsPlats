@@ -1,9 +1,6 @@
 import normalizeString from "./normalizeString.js";
 
 export default class MainSearch {
-  constructor(recipes) {
-    this.recipes = recipes;
-  }
 
   static filterCards(recipes, userInput) {
     let filteredRecipes = [];

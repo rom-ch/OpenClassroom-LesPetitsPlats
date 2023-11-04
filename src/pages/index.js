@@ -55,11 +55,6 @@ class App {
     }
   }
 
-  getAddedtags() {
-    const items = document.querySelectorAll("added-items li span");
-    console.log(items.innerText);
-  }
-
   init() {
     // Dom elements
     const searchInput = document.querySelector("#search");
@@ -76,13 +71,13 @@ class App {
         );
         this.displayRecipeCards(filteredRecipes, e.target.value);
         ingredientsDropdown.init(this.getIngredients(filteredRecipes));
-        applianceDropdown.init(this.getIngredients(filteredRecipes));
-        ustensilsDropdown.init(this.getIngredients(filteredRecipes));
+        applianceDropdown.init(this.getAppliances(filteredRecipes));
+        ustensilsDropdown.init(this.getUstensils(filteredRecipes));
       } else {
         this.displayRecipeCards(recipes);
         ingredientsDropdown.init(this.getIngredients(recipes));
-        applianceDropdown.init(this.getIngredients(recipes));
-        ustensilsDropdown.init(this.getIngredients(recipes));
+        applianceDropdown.init(this.getAppliances(recipes));
+        ustensilsDropdown.init(this.getUstensils(recipes));
       }
     });
 
@@ -95,8 +90,20 @@ class App {
     // Ustensils dropdown
     const ustensilsDropdown = new Dropdown("Ustensiles");
     ustensilsDropdown.init(this.getUstensils(recipes));
+
+    const links = document.querySelectorAll(".list li a");
+    // let filteredRecipes;
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        let filteredRecipes =  MainSearchArrMethods.filterCards(recipes, link.innerHTML);
+        this.displayRecipeCards(filteredRecipes);
+      });
+    });
   }
 }
 
 const app = new App();
 app.init();
+
+// mia.monroex

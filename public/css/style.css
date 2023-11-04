@@ -344,3 +344,55 @@ ul {
 .ingredient__value {
 	color: var(--clr-grey-400);
 }
+
+
+@media (max-width: 425px) {
+	.header {
+		height: 333px;
+		padding: 1rem 1.5rem;
+		background-size: cover;
+	}
+
+	.header__logo {
+		scale: .5;
+		left: -2rem;
+	}
+
+	.header__content {
+		width: 90%;
+	}
+
+	.header__title {
+		font-size: 22px;
+		margin-bottom: 2rem;
+	}
+
+	.header__form button {
+		width: 35px;
+		height: 37px;
+	}
+
+	.search {
+		padding: .75rem;
+		font-size: .8rem;
+	}
+
+	.filters-section {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	.filters {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.link {
+		gap: 1rem;
+	}
+
+	.recipes-section {
+		padding-inline: 0;
+	}
+}
