@@ -1,6 +1,7 @@
 import RecipeCard from "../utils/recipeCard.js";
 import MainSearch from "../utils/mainSearchNativeLoops.js";
 import Dropdown from "../utils/dropdown.js";
+import Tag from "../utils/tag.js";
 
 import { recipes } from "../recipes.js";
 import MainSearchArrMethods from "../utils/mainSearchArrMethods.js";
@@ -96,8 +97,7 @@ class App {
     links.forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
-        let filteredRecipes =  MainSearchArrMethods.filterCards(recipes, link.innerHTML);
-        this.displayRecipeCards(filteredRecipes);
+        new Tag(link.innerHTML);
       });
     });
   }
@@ -105,5 +105,3 @@ class App {
 
 const app = new App();
 app.init();
-
-// mia.monroex

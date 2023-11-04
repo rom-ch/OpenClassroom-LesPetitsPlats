@@ -257,6 +257,30 @@ ul {
 	font-family: "Anton", sans-serif;
 	font-size: 21px;
 }
+
+/* Tags Section */
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding: 2rem 3rem 0;
+}
+
+.tag {
+	padding: 1rem;
+	background-color: var(--clr-accent);
+	font-size: 12px;
+	border-radius: 10px;
+
+	display: flex;
+	gap: 2rem;
+}
+
+.tag .fa-x {
+	cursor: pointer;
+}
+
 /* Recipes section */
 
 .recipes-section {
