@@ -1,13 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=https://repo.github.io/rom-ch/OpenClassroom-LesPetitsPlats/src/index.html">
-
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/e4296c345c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <script type="module" src="./src/pages/index.js" defer></script>
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./assets/images/logo.svg"
+        alt="Les Petits Plats"
+      />
+      <div class="header__content">
+        <h1 class="header__title">
+          Cherchez parmi plus de 1500 recettes<br />
+          du quotidien, simples et délicieuses
+        </h1>
+        <form class="header__form" action="#">
+          <label class="search-label" for="search"
+            >Rechercher une recette, un ingrédient, ...</label
+          >
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="search"
+            placeholder="Rechercher une recette, un ingredient, ..."
+          />
+          <button type="submit">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="10" cy="10" r="9.5" stroke="white" />
+              <line
+                x1="18.3536"
+                y1="18.6464"
+                x2="27.3536"
+                y2="27.6464"
+                stroke="white"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <section class="filters-section">
+        <div class="filters"></div>
+        <span class="total-recipes">50 recettes</span>
+      </section>
+      <section class="tags"></section>
+      <section class="recipes-section"></section>
+    </main>
+  </body>
 </html>
