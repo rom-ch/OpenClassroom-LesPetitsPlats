@@ -1,3 +1,5 @@
+import Tag from "./tag.js";
+
 export default class Dropdown {
   constructor(name) {
     this.element = this.buildDOM(name);
@@ -5,13 +7,22 @@ export default class Dropdown {
 
   init(list) {
     this.addListItems(list);
-    this.selectItem();
-    this.removeItem();
+    // this.selectItem();
+    // this.removeItem();
+    this.addTag();
   }
 
   openDropdown(e) {
     e.preventDefault();
-    this.element.classList.toggle("active");
+    const isDropdownButton = e.target.matches("[data-dropdown-button]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") !== null)
+      return;
+
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
   }
 
   addListItems(list) {
@@ -27,29 +38,43 @@ export default class Dropdown {
     });
   }
 
-  selectItem() {
-    const items = this.element.querySelectorAll(".list li a");
-    items.forEach(item => {
-      item.addEventListener("click", e => {
-        e.preventDefault();
-        const li = document.createElement("li");
-        li.classList.add("list-item");
-        li.innerHTML = `
-          <span>${item.innerText}</span>
-          <i class="fa-solid fa-xmark"></i>
-        `;
-        this.element.querySelector(".added-items").appendChild(li);
-      });
-    });
-  }
+  // selectItem() {
+  //   const items = this.element.querySelectorAll(".list li a");
+  //   items.forEach(item => {
+  //     item.addEventListener("click", e => {
+  //       e.preventDefault();
+  //       const li = document.createElement("li");
+  //       li.classList.add("list-item");
+  //       li.innerHTML = `
+  //         <span>${item.innerText}</span>
+  //         <i class="fa-solid fa-xmark"></i>
+  //       `;
+  //       this.element.querySelector(".added-items").appendChild(li);
+  //     });
+  //   });
+  // }
 
-  removeItem() {
-    const menu = this.element.querySelector(".dropdown-menu");
-    menu.addEventListener("click", e => {
-      e.preventDefault();
-      if (e.target.matches(".fa-xmark")) {
-        e.target.parentElement.remove();
-      }
+  // removeItem() {
+  //   const menu = this.element.querySelector(".dropdown-menu");
+  //   menu.addEventListener("click", e => {
+  //     e.preventDefault();
+  //     if (e.target.matches(".fa-xmark")) {
+  //       e.target.parentElement.remove();
+  //     }
+  //   });
+  // }
+
+  addTag() {
+    const links = this.element.querySelectorAll(".list li a");
+    let tags = [];
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        new Tag(link.innerHTML);
+        tags.push(link.innerHTML);
+        this.element.classList.remove("active");
+        console.log(tags);
+      });
     });
   }
 
@@ -57,6 +82,7 @@ export default class Dropdown {
     const filtersSection = document.querySelector(".filters");
     const dom = document.createElement("div");
     dom.classList.add("dropdown");
+    dom.setAttribute("data-dropdown", "");
     dom.innerHTML = `
     <button class="link" data-dropdown-button>
     <span>${name}</span>
@@ -100,7 +126,7 @@ export default class Dropdown {
     `;
 
     filtersSection.appendChild(dom);
-    dom.addEventListener("click", this.openDropdown.bind(this));
+    document.addEventListener("click", this.openDropdown.bind(this));
     return dom;
   }
 }

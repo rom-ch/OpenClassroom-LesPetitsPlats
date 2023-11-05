@@ -1,10 +1,7 @@
-import RecipeCard from "../utils/recipeCard.js";
-import MainSearch from "../utils/mainSearchNativeLoops.js";
-import Dropdown from "../utils/dropdown.js";
-import Tag from "../utils/tag.js";
-
-import { recipes } from "../recipes.js";
-import MainSearchArrMethods from "../utils/mainSearchArrMethods.js";
+import { recipes } from "../data/recipes.js";
+import MainSearch from "../utils/mainSearch.js";
+import RecipeCard from "../components/recipeCard.js";
+import Dropdown from "../components/dropdown.js";
 
 class App {
   constructor() {
@@ -66,7 +63,7 @@ class App {
     // Filtre les recettes
     searchInput.addEventListener("input", e => {
       if (e.target.value.length >= 3) {
-        let filteredRecipes = MainSearchArrMethods.filterCards(
+        let filteredRecipes = MainSearch.filterCards(
           recipes,
           e.target.value
         );
@@ -91,15 +88,6 @@ class App {
     // Ustensils dropdown
     const ustensilsDropdown = new Dropdown("Ustensiles");
     ustensilsDropdown.init(this.getUstensils(recipes));
-
-    const links = document.querySelectorAll(".list li a");
-    // let filteredRecipes;
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        new Tag(link.innerHTML);
-      });
-    });
   }
 }
 
