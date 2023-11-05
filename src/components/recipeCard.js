@@ -28,7 +28,7 @@ export default class RecipeCard {
     dom.classList.add("card");
     dom.innerHTML = `
 		<div class="card__image">
-			<img src="./assets/recipes/${this.recipe.image}" alt="${this.recipe.name}" />
+			<img src="./public/assets/recipes/${this.recipe.image}" alt="${this.recipe.name}" />
 		</div>
 		<span class="card__duration">${this.recipe.time} mn</span>
 		<div class="card__content">
