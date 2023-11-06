@@ -5,7 +5,6 @@ export default class Dropdown {
 
   init(list) {
     this.addListItems(list);
-    // this.addTag();
   }
 
   openDropdown(e) {

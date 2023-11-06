@@ -46,6 +46,10 @@ class App {
 
   // Methode pour inserrer les cartes recettes dans le dom
   displayRecipeCards(recipes, userInput) {
+    document.querySelector(
+      ".total-recipes"
+    ).innerHTML = `${recipes.length} recettes`;
+
     this.recipeSection.innerHTML = "";
     recipes.forEach(recipe => {
       const card = new RecipeCard(recipe).buildDOM();
@@ -99,6 +103,9 @@ class App {
         this.displayRecipeCards(this.recipes, "error");
       });
     });
+
+    // RecipeNumber
+    // new RecipeNumber(this.recipes.length);
   }
 }
 
