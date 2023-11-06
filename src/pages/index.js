@@ -2,10 +2,15 @@ import { recipes } from "../data/recipes.js";
 import MainSearch from "../utils/mainSearch.js";
 import RecipeCard from "../components/recipeCard.js";
 import Dropdown from "../components/dropdown.js";
+import Tag from "../components/tag.js";
+
+import filterRecipesWithTags from "../utils/filterRecipesWithTags.js";
 
 class App {
   constructor() {
     this.recipeSection = document.querySelector(".recipes-section");
+    this.recipes = recipes;
+    this.tagList = [];
   }
 
   // Recuperer les ingredients de chaque recette
@@ -58,19 +63,16 @@ class App {
     const searchInput = document.querySelector("#search");
 
     // Ajoute toutes les recettes au lancement de la page
-    this.displayRecipeCards(recipes);
+    this.displayRecipeCards(this.recipes);
 
     // Filtre les recettes
     searchInput.addEventListener("input", e => {
       if (e.target.value.length >= 3) {
-        let filteredRecipes = MainSearch.filterCards(
-          recipes,
-          e.target.value
-        );
-        this.displayRecipeCards(filteredRecipes, e.target.value);
-        ingredientsDropdown.init(this.getIngredients(filteredRecipes));
-        applianceDropdown.init(this.getAppliances(filteredRecipes));
-        ustensilsDropdown.init(this.getUstensils(filteredRecipes));
+        this.recipes = MainSearch.filterCards(this.recipes, e.target.value);
+        this.displayRecipeCards(this.recipes, e.target.value);
+        ingredientsDropdown.init(this.getIngredients(this.recipes));
+        applianceDropdown.init(this.getAppliances(this.recipes));
+        ustensilsDropdown.init(this.getUstensils(this.recipes));
       } else {
         this.displayRecipeCards(recipes);
         ingredientsDropdown.init(this.getIngredients(recipes));
@@ -88,6 +90,15 @@ class App {
     // Ustensils dropdown
     const ustensilsDropdown = new Dropdown("Ustensiles");
     ustensilsDropdown.init(this.getUstensils(recipes));
+
+    // Tags
+    const links = document.querySelectorAll(".list li a");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        this.tagList.push(new Tag(link.innerHTML).tag);
+        filterRecipesWithTags(this.recipes, this.tagList);
+      });
+    });
   }
 }
 

@@ -1,5 +1,3 @@
-import Tag from "./tag.js";
-
 export default class Dropdown {
   constructor(name) {
     this.element = this.buildDOM(name);
@@ -7,9 +5,7 @@ export default class Dropdown {
 
   init(list) {
     this.addListItems(list);
-    // this.selectItem();
-    // this.removeItem();
-    this.addTag();
+    // this.addTag();
   }
 
   openDropdown(e) {
@@ -23,6 +19,11 @@ export default class Dropdown {
       currentDropdown = e.target.closest("[data-dropdown]");
       currentDropdown.classList.toggle("active");
     }
+
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
   }
 
   addListItems(list) {
@@ -35,46 +36,6 @@ export default class Dropdown {
         <a href="#">${item}</a>
       `;
       ul.appendChild(li);
-    });
-  }
-
-  // selectItem() {
-  //   const items = this.element.querySelectorAll(".list li a");
-  //   items.forEach(item => {
-  //     item.addEventListener("click", e => {
-  //       e.preventDefault();
-  //       const li = document.createElement("li");
-  //       li.classList.add("list-item");
-  //       li.innerHTML = `
-  //         <span>${item.innerText}</span>
-  //         <i class="fa-solid fa-xmark"></i>
-  //       `;
-  //       this.element.querySelector(".added-items").appendChild(li);
-  //     });
-  //   });
-  // }
-
-  // removeItem() {
-  //   const menu = this.element.querySelector(".dropdown-menu");
-  //   menu.addEventListener("click", e => {
-  //     e.preventDefault();
-  //     if (e.target.matches(".fa-xmark")) {
-  //       e.target.parentElement.remove();
-  //     }
-  //   });
-  // }
-
-  addTag() {
-    const links = this.element.querySelectorAll(".list li a");
-    let tags = [];
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        new Tag(link.innerHTML);
-        tags.push(link.innerHTML);
-        this.element.classList.remove("active");
-        console.log(tags);
-      });
     });
   }
 
