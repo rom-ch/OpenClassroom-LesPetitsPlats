@@ -1,11 +1,19 @@
-export default function filterRecipesWithTags(recipes, tags) {
+export default function filterRecipesWithTags(recipes, tag) {
   let filteredRecipes = [];
 
-  recipes.forEach(recipe => {
-    tags.forEach(tag => {
-      if (recipe.ustensils.includes(tag) || recipe.appliance.includes(tag)) {
+  const compareIng = (recipe, tag) => {
+    recipe.ingredients.forEach(ing => {
+      if (ing.ingredient.includes(tag)) {
         filteredRecipes.push(recipe);
       }
     });
+  };
+
+  recipes.forEach(recipe => {
+    if (recipe.appliance.includes(tag) || recipe.ustensils.includes(tag)) {
+      filteredRecipes.push(recipe);
+    }
+    compareIng(recipe, tag);
   });
+  return filteredRecipes;
 }

@@ -10,7 +10,6 @@ class App {
   constructor() {
     this.recipeSection = document.querySelector(".recipes-section");
     this.recipes = recipes;
-    this.tagList = [];
   }
 
   // Recuperer les ingredients de chaque recette
@@ -95,8 +94,9 @@ class App {
     const links = document.querySelectorAll(".list li a");
     links.forEach(link => {
       link.addEventListener("click", () => {
-        this.tagList.push(new Tag(link.innerHTML).tag);
-        filterRecipesWithTags(this.recipes, this.tagList);
+        new Tag(link.innerHTML);
+        this.recipes = filterRecipesWithTags(this.recipes, link.innerHTML);
+        this.displayRecipeCards(this.recipes, "error");
       });
     });
   }
