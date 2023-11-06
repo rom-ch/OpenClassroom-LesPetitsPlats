@@ -10,6 +10,7 @@ class App {
   constructor() {
     this.recipeSection = document.querySelector(".recipes-section");
     this.recipes = recipes;
+    this.tagList = [];
   }
 
   // Recuperer les ingredients de chaque recette
@@ -99,13 +100,11 @@ class App {
     links.forEach(link => {
       link.addEventListener("click", () => {
         new Tag(link.innerHTML);
+        this.tagList.push(link.innerHTML);
         this.recipes = filterRecipesWithTags(this.recipes, link.innerHTML);
-        this.displayRecipeCards(this.recipes, "error");
+        this.displayRecipeCards(this.recipes, "les filtres choisis");
       });
     });
-
-    // RecipeNumber
-    // new RecipeNumber(this.recipes.length);
   }
 }
 
